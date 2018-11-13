@@ -10,12 +10,13 @@ import (
 )
 
 type NotificacionConfiguracion struct {
-	Id                 int               `orm:"column(id);pk"`
-	EndPoint           string            `orm:"column(end_point)"`
-	MetodoHttp         *MetodoHttp       `orm:"column(metodo_http);rel(fk)"`
-	Tipo               *NotificacionTipo `orm:"column(tipo);rel(fk)"`
-	CuerpoNotificacion string            `orm:"column(cuerpo_notificacion);type(json)"`
-	Aplicacion         *Aplicacion       `orm:"column(aplicacion);rel(fk)"`
+	Id                              int                                `orm:"column(id);pk;auto"`
+	EndPoint                        string                             `orm:"column(end_point)"`
+	MetodoHttp                      *MetodoHttp                        `orm:"column(metodo_http);rel(fk)"`
+	Tipo                            *NotificacionTipo                  `orm:"column(tipo);rel(fk)"`
+	CuerpoNotificacion              string                             `orm:"column(cuerpo_notificacion);type(json)"`
+	Aplicacion                      *Aplicacion                        `orm:"column(aplicacion);rel(fk)"`
+	NotificacionConfiguracionPerfil []*NotificacionConfiguracionPerfil `orm:"reverse(many)"`
 }
 
 func (t *NotificacionConfiguracion) TableName() string {
@@ -101,10 +102,11 @@ func GetAllNotificacionConfiguracion(query map[string]string, fields []string, s
 	}
 
 	var l []NotificacionConfiguracion
-	qs = qs.OrderBy(sortFields...)
+	qs = qs.OrderBy(sortFields...).RelatedSel(5)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
 			for _, v := range l {
+				o.LoadRelated(&v, "NotificacionConfiguracionPerfil", 5, 1, 0, "-Id")
 				ml = append(ml, v)
 			}
 		} else {

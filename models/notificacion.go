@@ -7,20 +7,13 @@ import (
 	"strings"
 	"time"
 
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )
 
 type Notificacion struct {
-	Id                        int                        `orm:"column(id);pk"`
-	UsuarioDestino            int                        `orm:"column(usuario_destino);null"`
-	PerfilDestino             int                        `orm:"column(perfil_destino);null"`
-	AplicacionOrigen          int                        `orm:"column(aplicacion_origen)"`
-	FechaCreacion             time.Time                  `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	EstadoNotificacion        *NotificacionEstado        `orm:"column(estado_notificacion);rel(fk)"`
-	CuerpoNotificacion        string                     `orm:"column(cuerpo_notificacion);type(json);null"`
-	TipoNotificacion          *NotificacionTipo          `orm:"column(tipo_notificacion);rel(fk)"`
-	Id                        int                        `orm:"column(id);pk"`
-	FechaCreacion             time.Time                  `orm:"column(fecha_creacion);type(timestamp with time zone)"`
+	Id                        int                        `orm:"column(id);pk;auto"`
+	FechaCreacion             time.Time                  `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
 	EstadoNotificacion        *NotificacionEstado        `orm:"column(estado_notificacion);rel(fk)"`
 	CuerpoNotificacion        string                     `orm:"column(cuerpo_notificacion);type(json);null"`
 	NotificacionConfiguracion *NotificacionConfiguracion `orm:"column(notificacion_configuracion);rel(fk)"`
@@ -65,6 +58,13 @@ func GetAllNotificacion(query map[string]string, fields []string, sortby []strin
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else if strings.Contains(k, "__in") {
+			arr := strings.Split(v, "|")
+			qs = qs.Filter(k, arr)
+		} else if strings.Contains(k, "__not_in") {
+			beego.Info(k)
+			k = strings.Replace(k, "__not_in", "", -1)
+			qs = qs.Exclude(k, v)
 		} else {
 			qs = qs.Filter(k, v)
 		}
@@ -109,10 +109,13 @@ func GetAllNotificacion(query map[string]string, fields []string, sortby []strin
 	}
 
 	var l []Notificacion
-	qs = qs.OrderBy(sortFields...)
+	qs = qs.OrderBy(sortFields...).RelatedSel(5)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
 			for _, v := range l {
+
+				o.LoadRelated(v.NotificacionConfiguracion, "NotificacionConfiguracionPerfil", 5, 1, 0, "-Id")
+
 				ml = append(ml, v)
 			}
 		} else {
