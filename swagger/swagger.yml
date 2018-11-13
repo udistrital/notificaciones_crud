@@ -1,0 +1,680 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /notificacion/:
+    get:
+      tags:
+      - notificacion
+      description: get Notificacion
+      operationId: NotificacionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Notificacion'
+        "403":
+          description: ""
+    post:
+      tags:
+      - notificacion
+      description: create Notificacion
+      operationId: NotificacionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Notificacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Notificacion'
+      responses:
+        "201":
+          description: '{int} models.Notificacion'
+        "403":
+          description: body is empty
+  /notificacion/{id}:
+    get:
+      tags:
+      - notificacion
+      description: get Notificacion by id
+      operationId: NotificacionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Notificacion'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - notificacion
+      description: update the Notificacion
+      operationId: NotificacionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Notificacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Notificacion'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Notificacion'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - notificacion
+      description: delete the Notificacion
+      operationId: NotificacionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /notificacion_configuracion/:
+    get:
+      tags:
+      - notificacion_configuracion
+      description: get NotificacionConfiguracion
+      operationId: NotificacionConfiguracionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.NotificacionConfiguracion'
+        "403":
+          description: ""
+    post:
+      tags:
+      - notificacion_configuracion
+      description: create NotificacionConfiguracion
+      operationId: NotificacionConfiguracionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for NotificacionConfiguracion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.NotificacionConfiguracion'
+      responses:
+        "201":
+          description: '{int} models.NotificacionConfiguracion'
+        "403":
+          description: body is empty
+  /notificacion_configuracion/{id}:
+    get:
+      tags:
+      - notificacion_configuracion
+      description: get NotificacionConfiguracion by id
+      operationId: NotificacionConfiguracionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.NotificacionConfiguracion'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - notificacion_configuracion
+      description: update the NotificacionConfiguracion
+      operationId: NotificacionConfiguracionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for NotificacionConfiguracion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.NotificacionConfiguracion'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.NotificacionConfiguracion'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - notificacion_configuracion
+      description: delete the NotificacionConfiguracion
+      operationId: NotificacionConfiguracionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /notificacion_configuracion_perfil/:
+    get:
+      tags:
+      - notificacion_configuracion_perfil
+      description: get NotificacionConfiguracionPerfil
+      operationId: NotificacionConfiguracionPerfilController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.NotificacionConfiguracionPerfil'
+        "403":
+          description: ""
+    post:
+      tags:
+      - notificacion_configuracion_perfil
+      description: create NotificacionConfiguracionPerfil
+      operationId: NotificacionConfiguracionPerfilController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for NotificacionConfiguracionPerfil content
+        required: true
+        schema:
+          $ref: '#/definitions/models.NotificacionConfiguracionPerfil'
+      responses:
+        "201":
+          description: '{int} models.NotificacionConfiguracionPerfil'
+        "403":
+          description: body is empty
+  /notificacion_configuracion_perfil/{id}:
+    get:
+      tags:
+      - notificacion_configuracion_perfil
+      description: get NotificacionConfiguracionPerfil by id
+      operationId: NotificacionConfiguracionPerfilController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.NotificacionConfiguracionPerfil'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - notificacion_configuracion_perfil
+      description: update the NotificacionConfiguracionPerfil
+      operationId: NotificacionConfiguracionPerfilController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for NotificacionConfiguracionPerfil content
+        required: true
+        schema:
+          $ref: '#/definitions/models.NotificacionConfiguracionPerfil'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.NotificacionConfiguracionPerfil'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - notificacion_configuracion_perfil
+      description: delete the NotificacionConfiguracionPerfil
+      operationId: NotificacionConfiguracionPerfilController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /notificacion_estado/:
+    get:
+      tags:
+      - notificacion_estado
+      description: get NotificacionEstado
+      operationId: NotificacionEstadoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.NotificacionEstado'
+        "403":
+          description: ""
+    post:
+      tags:
+      - notificacion_estado
+      description: create NotificacionEstado
+      operationId: NotificacionEstadoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for NotificacionEstado content
+        required: true
+        schema:
+          $ref: '#/definitions/models.NotificacionEstado'
+      responses:
+        "201":
+          description: '{int} models.NotificacionEstado'
+        "403":
+          description: body is empty
+  /notificacion_estado/{id}:
+    get:
+      tags:
+      - notificacion_estado
+      description: get NotificacionEstado by id
+      operationId: NotificacionEstadoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.NotificacionEstado'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - notificacion_estado
+      description: update the NotificacionEstado
+      operationId: NotificacionEstadoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for NotificacionEstado content
+        required: true
+        schema:
+          $ref: '#/definitions/models.NotificacionEstado'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.NotificacionEstado'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - notificacion_estado
+      description: delete the NotificacionEstado
+      operationId: NotificacionEstadoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /notificacion_tipo/:
+    get:
+      tags:
+      - notificacion_tipo
+      description: get NotificacionTipo
+      operationId: NotificacionTipoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.NotificacionTipo'
+        "403":
+          description: ""
+    post:
+      tags:
+      - notificacion_tipo
+      description: create NotificacionTipo
+      operationId: NotificacionTipoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for NotificacionTipo content
+        required: true
+        schema:
+          $ref: '#/definitions/models.NotificacionTipo'
+      responses:
+        "201":
+          description: '{int} models.NotificacionTipo'
+        "403":
+          description: body is empty
+  /notificacion_tipo/{id}:
+    get:
+      tags:
+      - notificacion_tipo
+      description: get NotificacionTipo by id
+      operationId: NotificacionTipoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.NotificacionTipo'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - notificacion_tipo
+      description: update the NotificacionTipo
+      operationId: NotificacionTipoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for NotificacionTipo content
+        required: true
+        schema:
+          $ref: '#/definitions/models.NotificacionTipo'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.NotificacionTipo'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - notificacion_tipo
+      description: delete the NotificacionTipo
+      operationId: NotificacionTipoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+definitions:
+  models.Aplicacion:
+    title: Aplicacion
+    type: object
+  models.MetodoHttp:
+    title: MetodoHttp
+    type: object
+  models.Notificacion:
+    title: Notificacion
+    type: object
+    properties:
+      CuerpoNotificacion:
+        type: string
+      EstadoNotificacion:
+        $ref: '#/definitions/models.NotificacionEstado'
+      FechaCreacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      NotificacionConfiguracion:
+        $ref: '#/definitions/models.NotificacionConfiguracion'
+  models.NotificacionConfiguracion:
+    title: NotificacionConfiguracion
+    type: object
+    properties:
+      Aplicacion:
+        $ref: '#/definitions/models.Aplicacion'
+      CuerpoNotificacion:
+        type: string
+      EndPoint:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      MetodoHttp:
+        $ref: '#/definitions/models.MetodoHttp'
+      NotificacionConfiguracionPerfil:
+        type: array
+        items:
+          $ref: '#/definitions/models.NotificacionConfiguracionPerfil'
+      Tipo:
+        $ref: '#/definitions/models.NotificacionTipo'
+  models.NotificacionConfiguracionPerfil:
+    title: NotificacionConfiguracionPerfil
+    type: object
+    properties:
+      Id:
+        type: integer
+        format: int64
+      NotificacionConfiguracion:
+        $ref: '#/definitions/models.NotificacionConfiguracion'
+      Perfil:
+        $ref: '#/definitions/models.Perfil'
+  models.NotificacionEstado:
+    title: NotificacionEstado
+    type: object
+    properties:
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+  models.NotificacionTipo:
+    title: NotificacionTipo
+    type: object
+    properties:
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+  models.Perfil:
+    title: Perfil
+    type: object
+tags:
+- name: notificacion_configuracion
+  description: |
+    NotificacionConfiguracionController operations for NotificacionConfiguracion
+- name: notificacion_configuracion_perfil
+  description: |
+    NotificacionConfiguracionPerfilController operations for NotificacionConfiguracionPerfil
+- name: notificacion_estado
+  description: |
+    NotificacionEstadoController operations for NotificacionEstado
+- name: notificacion_tipo
+  description: |
+    NotificacionTipoController operations for NotificacionTipo
+- name: notificacion
+  description: |
+    NotificacionController operations for Notificacion
