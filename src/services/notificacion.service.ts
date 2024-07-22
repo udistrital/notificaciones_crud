@@ -53,13 +53,20 @@ export class NotificacionService {
     }
 
     // ? funciones REST generalizadas
-    async post(mainDto: MainDto): Promise<MainDto> {
+    async post(mainDto: MainDto): Promise<MainDto[]> {
         const dateNow = new Date();
-        const newdoc = new this.mainModel(mainDto);
-        newdoc.fecha_creacion = dateNow;
-        newdoc.fecha_modificacion = dateNow;
-        await this.checkRelated(newdoc);
-        return await newdoc.save();
+
+        const documents = await Promise.all(mainDto.destinatarios.map(async (destinatario) => {
+            const newdoc = {
+                ...mainDto,
+                destinatario,
+                fecha_creacion: dateNow,
+                fecha_modificacion: dateNow
+            };
+            await this.checkRelated(newdoc);
+            return newdoc;
+        }));
+        return await this.mainModel.insertMany(documents, { ordered: false });
     }
 
     async getAll(filterDto: FilterDto): Promise<MainDto[]> {
