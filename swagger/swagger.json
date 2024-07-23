@@ -735,6 +735,12 @@
                     "destinatario": {
                         "type": "string"
                     },
+                    "destinatarios": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
                     "remitente": {
                         "type": "string"
                     },
@@ -771,6 +777,7 @@
                     "sistema_id",
                     "tipo_notificacion_id",
                     "destinatario",
+                    "destinatarios",
                     "remitente",
                     "asunto",
                     "mensaje",

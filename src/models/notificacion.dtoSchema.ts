@@ -9,7 +9,10 @@ export class NotificacionDto {
     readonly tipo_notificacion_id: string;
 
     @ApiProperty()
-    readonly destinatario: string;
+    readonly destinatario: string
+
+    @ApiProperty()
+    readonly destinatarios?: string[]
 
     @ApiProperty()
     readonly remitente: string;

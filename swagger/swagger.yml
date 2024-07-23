@@ -461,6 +461,10 @@ components:
           type: string
         destinatario:
           type: string
+        destinatarios:
+          type: array
+          items:
+            type: string
         remitente:
           type: string
         asunto:
@@ -487,6 +491,7 @@ components:
         - sistema_id
         - tipo_notificacion_id
         - destinatario
+        - destinatarios
         - remitente
         - asunto
         - mensaje
