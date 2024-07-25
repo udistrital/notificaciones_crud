@@ -29,4 +29,8 @@ import { TipoNotificacionService } from './services/tipo_notificacion.service';
   controllers: [AppController, NotificacionController, PlantillaController, SistemaController, TipoNotificacionController],
   providers: [AppService, NotificacionService, PlantillaService, SistemaService, TipoNotificacionService],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer): void {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+  }
+}
