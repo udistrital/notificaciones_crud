@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { environment } from './config/configuration';
+import { LoggerMiddleware } from './logger/logger';
 import { Notificacion, NotitficacionSchema } from './models/notificacion.dtoSchema';
 import { NotificacionController } from './controllers/notificacion.controller';
 import { NotificacionService } from './services/notificacion.service';
