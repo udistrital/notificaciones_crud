@@ -2,7 +2,14 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getDefault(): Object {
-    return { status: "OK" };
+  healthcheck(): Object {
+    return {
+      Status: "Ok",
+      checkCount: check.count++
+    };
   }
+}
+
+export class check {
+  static count: number = 0;
 }
