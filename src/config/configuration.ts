@@ -1,6 +1,3 @@
-import { config } from "dotenv";
-config()
-
 export const environment =  {
     USER: process.env.NOTIFICACIONES_CRUD_USER,
     PASS: process.env.NOTIFICACIONES_CRUD_PASS,
