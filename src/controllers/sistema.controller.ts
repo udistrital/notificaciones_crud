@@ -47,9 +47,9 @@ export class SistemaController {
         })
     }
 
-    @Get('/:id')
-    async getById(@Res() res, @Param('id') id: string) {
-        this.sistemaService.getById(id).then(sistema => {
+    @Get('/:_id')
+    async getById(@Res() res, @Param('_id') _id: string) {
+        this.sistemaService.getById(_id).then(sistema => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
@@ -66,9 +66,9 @@ export class SistemaController {
         })
     }
 
-    @Put('/:id')
-    async put(@Res() res, @Param('id') id: string, @Body() sistemaDto: SistemaDto) {
-        this.sistemaService.put(id, sistemaDto).then(sistema => {
+    @Put('/:_id')
+    async put(@Res() res, @Param('_id') _id: string, @Body() sistemaDto: SistemaDto) {
+        this.sistemaService.put(_id, sistemaDto).then(sistema => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
@@ -85,9 +85,9 @@ export class SistemaController {
         })
     }
 
-    @Delete('/:id')
-    async delete(@Res() res, @Param('id') id: string) {
-        this.sistemaService.delete(id).then(sistema => {
+    @Delete('/:_id')
+    async delete(@Res() res, @Param('_id') _id: string) {
+        this.sistemaService.delete(_id).then(sistema => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,

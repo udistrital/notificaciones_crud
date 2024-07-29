@@ -1,6 +1,20 @@
 {
     "openapi": "3.0.0",
     "paths": {
+        "/": {
+            "get": {
+                "operationId": "AppController_healthcheck",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "health-check"
+                ]
+            }
+        },
         "/notificacion": {
             "post": {
                 "operationId": "NotificacionController_post",
@@ -101,12 +115,12 @@
                 ]
             }
         },
-        "/notificacion/{id}": {
+        "/notificacion/{_id}": {
             "get": {
                 "operationId": "NotificacionController_getById",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "_id",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -127,7 +141,7 @@
                 "operationId": "NotificacionController_put",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "_id",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -158,7 +172,7 @@
                 "operationId": "NotificacionController_delete",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "_id",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -276,12 +290,12 @@
                 ]
             }
         },
-        "/plantilla/{id}": {
+        "/plantilla/{_id}": {
             "get": {
                 "operationId": "PlantillaController_getById",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "_id",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -302,7 +316,7 @@
                 "operationId": "PlantillaController_put",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "_id",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -333,7 +347,7 @@
                 "operationId": "PlantillaController_delete",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "_id",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -451,12 +465,12 @@
                 ]
             }
         },
-        "/sistema/{id}": {
+        "/sistema/{_id}": {
             "get": {
                 "operationId": "SistemaController_getById",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "_id",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -477,7 +491,7 @@
                 "operationId": "SistemaController_put",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "_id",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -508,7 +522,7 @@
                 "operationId": "SistemaController_delete",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "_id",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -626,12 +640,12 @@
                 ]
             }
         },
-        "/tipo_notificacion/{id}": {
+        "/tipo_notificacion/{_id}": {
             "get": {
                 "operationId": "TipoNotificacionController_getById",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "_id",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -652,7 +666,7 @@
                 "operationId": "TipoNotificacionController_put",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "_id",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -683,7 +697,7 @@
                 "operationId": "TipoNotificacionController_delete",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "_id",
                         "required": true,
                         "in": "path",
                         "schema": {
