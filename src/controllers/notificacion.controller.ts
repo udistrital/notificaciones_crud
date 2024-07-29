@@ -47,9 +47,9 @@ export class NotificacionController {
         })
     }
 
-    @Get('/:_id')
-    async getById(@Res() res, @Param('_id') _id: string) {
-        this.notificacionService.getById(_id).then(notificacion => {
+    @Get('/:id')
+    async getById(@Res() res, @Param('id') id: string) {
+        this.notificacionService.getById(id).then(notificacion => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
@@ -66,9 +66,9 @@ export class NotificacionController {
         })
     }
 
-    @Put('/:_id')
-    async put(@Res() res, @Param('_id') _id: string, @Body() notificacionDto: NotificacionDto) {
-        this.notificacionService.put(_id, notificacionDto).then(notificacion => {
+    @Put('/:id')
+    async put(@Res() res, @Param('id') id: string, @Body() notificacionDto: NotificacionDto) {
+        this.notificacionService.put(id, notificacionDto).then(notificacion => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
@@ -85,9 +85,9 @@ export class NotificacionController {
         })
     }
 
-    @Delete('/:_id')
-    async delete(@Res() res, @Param('_id') _id: string) {
-        this.notificacionService.delete(_id).then(notificacion => {
+    @Delete('/:id')
+    async delete(@Res() res, @Param('id') id: string) {
+        this.notificacionService.delete(id).then(notificacion => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,

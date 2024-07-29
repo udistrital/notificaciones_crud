@@ -47,9 +47,9 @@ export class TipoNotificacionController {
         })
     }
 
-    @Get('/:_id')
-    async getById(@Res() res, @Param('_id') _id: string) {
-        this.tipoNotificacionService.getById(_id).then(tipoNotificacion => {
+    @Get('/:id')
+    async getById(@Res() res, @Param('id') id: string) {
+        this.tipoNotificacionService.getById(id).then(tipoNotificacion => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
@@ -66,9 +66,9 @@ export class TipoNotificacionController {
         })
     }
 
-    @Put('/:_id')
-    async put(@Res() res, @Param('_id') _id: string, @Body() tipoNotificacionDto: TipoNotificacionDto) {
-        this.tipoNotificacionService.put(_id, tipoNotificacionDto).then(tipoNotificacion => {
+    @Put('/:id')
+    async put(@Res() res, @Param('id') id: string, @Body() tipoNotificacionDto: TipoNotificacionDto) {
+        this.tipoNotificacionService.put(id, tipoNotificacionDto).then(tipoNotificacion => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
@@ -85,9 +85,9 @@ export class TipoNotificacionController {
         })
     }
 
-    @Delete('/:_id')
-    async delete(@Res() res, @Param('_id') _id: string) {
-        this.tipoNotificacionService.delete(_id).then(tipoNotificacion => {
+    @Delete('/:id')
+    async delete(@Res() res, @Param('id') id: string) {
+        this.tipoNotificacionService.delete(id).then(tipoNotificacion => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,

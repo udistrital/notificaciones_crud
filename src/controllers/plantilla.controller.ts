@@ -47,9 +47,9 @@ export class PlantillaController {
         })
     }
 
-    @Get('/:_id')
-    async getById(@Res() res, @Param('_id') _id: string) {
-        this.plantillaService.getById(_id).then(plantilla => {
+    @Get('/:id')
+    async getById(@Res() res, @Param('id') id: string) {
+        this.plantillaService.getById(id).then(plantilla => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
@@ -66,9 +66,9 @@ export class PlantillaController {
         })
     }
 
-    @Put('/:_id')
-    async put(@Res() res, @Param('_id') _id: string, @Body() plantillaDto: PlantillaDto) {
-        this.plantillaService.put(_id, plantillaDto).then(plantilla => {
+    @Put('/:id')
+    async put(@Res() res, @Param('id') id: string, @Body() plantillaDto: PlantillaDto) {
+        this.plantillaService.put(id, plantillaDto).then(plantilla => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
@@ -85,9 +85,9 @@ export class PlantillaController {
         })
     }
 
-    @Delete('/:_id')
-    async delete(@Res() res, @Param('_id') _id: string) {
-        this.plantillaService.delete(_id).then(plantilla => {
+    @Delete('/:id')
+    async delete(@Res() res, @Param('id') id: string) {
+        this.plantillaService.delete(id).then(plantilla => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
