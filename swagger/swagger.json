@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "paths": {
-        "/notificacion": {
+        "/v1/notificacion": {
             "post": {
                 "operationId": "NotificacionController_post",
                 "parameters": [],
@@ -101,7 +101,7 @@
                 ]
             }
         },
-        "/notificacion/{id}": {
+        "/v1/notificacion/{id}": {
             "get": {
                 "operationId": "NotificacionController_getById",
                 "parameters": [
@@ -176,7 +176,7 @@
                 ]
             }
         },
-        "/plantilla": {
+        "/v1/plantilla": {
             "post": {
                 "operationId": "PlantillaController_post",
                 "parameters": [],
@@ -276,7 +276,7 @@
                 ]
             }
         },
-        "/plantilla/{id}": {
+        "/v1/plantilla/{id}": {
             "get": {
                 "operationId": "PlantillaController_getById",
                 "parameters": [
@@ -351,7 +351,7 @@
                 ]
             }
         },
-        "/sistema": {
+        "/v1/sistema": {
             "post": {
                 "operationId": "SistemaController_post",
                 "parameters": [],
@@ -451,7 +451,7 @@
                 ]
             }
         },
-        "/sistema/{id}": {
+        "/v1/sistema/{id}": {
             "get": {
                 "operationId": "SistemaController_getById",
                 "parameters": [
@@ -526,7 +526,7 @@
                 ]
             }
         },
-        "/tipo_notificacion": {
+        "/v1/tipo_notificacion": {
             "post": {
                 "operationId": "TipoNotificacionController_post",
                 "parameters": [],
@@ -626,7 +626,7 @@
                 ]
             }
         },
-        "/tipo_notificacion/{id}": {
+        "/v1/tipo_notificacion/{id}": {
             "get": {
                 "operationId": "TipoNotificacionController_getById",
                 "parameters": [
