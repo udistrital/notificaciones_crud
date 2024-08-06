@@ -477,9 +477,6 @@ components:
         fecha_creacion:
           format: date-time
           type: string
-        fecha_modificacion:
-          format: date-time
-          type: string
       required:
         - sistema_id
         - tipo_notificacion_id
@@ -493,7 +490,6 @@ components:
         - metadatos
         - activo
         - fecha_creacion
-        - fecha_modificacion
     PlantillaDto:
       type: object
       properties:

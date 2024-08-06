@@ -756,10 +756,6 @@
                     "fecha_creacion": {
                         "format": "date-time",
                         "type": "string"
-                    },
-                    "fecha_modificacion": {
-                        "format": "date-time",
-                        "type": "string"
                     }
                 },
                 "required": [
@@ -774,8 +770,7 @@
                     "fecha_lectura",
                     "metadatos",
                     "activo",
-                    "fecha_creacion",
-                    "fecha_modificacion"
+                    "fecha_creacion"
                 ]
             },
             "PlantillaDto": {

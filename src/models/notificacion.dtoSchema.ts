@@ -38,9 +38,6 @@ export class NotificacionDto {
     @ApiProperty()
     fecha_creacion: Date;
 
-    @ApiProperty()
-    fecha_modificacion: Date;
-    
 }
 
 import { Schema, Prop, SchemaFactory } from "@nestjs/mongoose";
@@ -81,10 +78,7 @@ export class Notificacion extends Document {
 
     @Prop({required: true})
     fecha_creacion: Date
-
-    @Prop({required: true})
-    fecha_modificacion: Date
-
+    
 }
 
 export const NotitficacionSchema = SchemaFactory.createForClass(Notificacion);
