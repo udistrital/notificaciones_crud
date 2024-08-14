@@ -60,8 +60,7 @@ export class NotificacionService {
             const newdoc = {
                 ...mainDto,
                 destinatario,
-                fecha_creacion: dateNow,
-                fecha_modificacion: dateNow
+                fecha_creacion: dateNow
             };
             await this.checkRelated(newdoc);
             return newdoc;
@@ -91,15 +90,6 @@ export class NotificacionService {
         }
         return doc;
     }
-
-    // async put(_id: string, mainDto: MainDto): Promise<MainDto> {
-    //     mainDto.fecha_modificacion = new Date();
-    //     if (mainDto.fecha_creacion) {
-    //         delete mainDto.fecha_creacion;
-    //     }
-    //     await this.checkRelated(mainDto);
-    //     return await this.mainModel.findByIdAndUpdate(_id, mainDto, { new: true });
-    // }
 
     async put(_id: string, mainDto: MainDto): Promise<MainModel> {
         await this.checkRelated(mainDto);

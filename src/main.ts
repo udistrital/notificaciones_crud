@@ -25,6 +25,6 @@ async function bootstrap() {
   fs.writeFileSync('./swagger/swagger.yml', yaml.dump(document));
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(parseInt(environment.HTTP_PORT,10) || 8080);
+  await app.listen(parseInt(environment.HTTP_PORT, 10) || 8080);
 }
 bootstrap();
