@@ -4,7 +4,6 @@ import { InjectModel } from "@nestjs/mongoose";
 import { FiltersService } from 'src/filters/filters.service';
 import { FilterDto } from 'src/filters/dto/filter.dto';
 import { NotificacionDto as MainDto, Notificacion as MainModel } from '../models/notificacion.dtoSchema';
-import { Sistema } from 'src/models/sistema.dtoSchema';
 import { TipoNotificacion } from 'src/models/tipo_notificacion.dtoSchema';
 
 @Injectable()
@@ -14,8 +13,6 @@ export class NotificacionService {
         private readonly mainModel: Model<MainModel>,
 
         // ? inyectar modelos relacionados para verificar existencia y popular
-        @InjectModel(Sistema.name)
-        private readonly sistemaModel: Model<Sistema>,
         @InjectModel(TipoNotificacion.name)
         private readonly tipoNotificacionModel: Model<TipoNotificacion>
     ) {}
@@ -27,12 +24,6 @@ export class NotificacionService {
      * @param mainDto - modelo dto que se desea verificar.
      */
     private async checkRelated(mainDto: MainDto) {
-        if (mainDto.sistema_id) {
-            const sistemaId = await this.sistemaModel.exists({ _id: mainDto.sistema_id });
-            if (!sistemaId) {
-                throw new Error(`sistema_id: ${mainDto.sistema_id} doesn't exist`);
-            }
-        }
         if (mainDto.tipo_notificacion_id) {
             const tipoNotificacionId = await this.tipoNotificacionModel.exists({ _id: mainDto.tipo_notificacion_id });
             if (!tipoNotificacionId) {
@@ -47,7 +38,6 @@ export class NotificacionService {
      */
     private populatefields(): any[] {
         return [
-            { path: Sistema.name + 'Id' },
             { path: TipoNotificacion.name + 'Id' }
         ]
     }

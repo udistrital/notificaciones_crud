@@ -10,13 +10,16 @@ export class TipoNotificacionDto {
 
     @ApiProperty()
     readonly codigo_abreviacion: string;
+
+    @ApiProperty()
+    prioridad: number;
     
 }
 
 import { Schema, Prop, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
 
-@Schema({collection: 'tipo-notificacion'})
+@Schema({collection: 'tipo_notificacion'})
 export class TipoNotificacion extends Document {
 
     @Prop({required: true})
@@ -27,6 +30,9 @@ export class TipoNotificacion extends Document {
 
     @Prop({required: true})
     codigo_abreviacion: string
+
+    @Prop({required: true})
+    prioridad: number
 
 }
 

@@ -351,181 +351,6 @@
                 ]
             }
         },
-        "/sistema": {
-            "post": {
-                "operationId": "SistemaController_post",
-                "parameters": [],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/SistemaDto"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "sistema"
-                ]
-            },
-            "get": {
-                "operationId": "SistemaController_getAll",
-                "parameters": [
-                    {
-                        "name": "query",
-                        "required": false,
-                        "in": "query",
-                        "description": "query - Filter. e.g. col1:v1,col2:v2 …",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "fields",
-                        "required": false,
-                        "in": "query",
-                        "description": "fields - Fields returned. e.g. col1,col2 …",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "sortby",
-                        "required": false,
-                        "in": "query",
-                        "description": "sortby - Sorted-by fields. e.g. col1,col2 …",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "order",
-                        "required": false,
-                        "in": "query",
-                        "description": "order - Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc …",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "limit",
-                        "required": false,
-                        "in": "query",
-                        "description": "limit - Limit the size of result set. Must be an integer",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "offset",
-                        "required": false,
-                        "in": "query",
-                        "description": "offset - Start position of result set. Must be an integer",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "populate",
-                        "required": false,
-                        "in": "query",
-                        "description": "populate - show subqueries. Must be a boolean",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "sistema"
-                ]
-            }
-        },
-        "/sistema/{id}": {
-            "get": {
-                "operationId": "SistemaController_getById",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "required": true,
-                        "in": "path",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "sistema"
-                ]
-            },
-            "put": {
-                "operationId": "SistemaController_put",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "required": true,
-                        "in": "path",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/SistemaDto"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "sistema"
-                ]
-            },
-            "delete": {
-                "operationId": "SistemaController_delete",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "required": true,
-                        "in": "path",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "sistema"
-                ]
-            }
-        },
         "/tipo_notificacion": {
             "post": {
                 "operationId": "TipoNotificacionController_post",
@@ -818,25 +643,6 @@
                     "fecha_modificacion"
                 ]
             },
-            "SistemaDto": {
-                "type": "object",
-                "properties": {
-                    "nombre": {
-                        "type": "string"
-                    },
-                    "descripcion": {
-                        "type": "string"
-                    },
-                    "codigo_abreviacion": {
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "nombre",
-                    "descripcion",
-                    "codigo_abreviacion"
-                ]
-            },
             "TipoNotificacionDto": {
                 "type": "object",
                 "properties": {
@@ -848,12 +654,16 @@
                     },
                     "codigo_abreviacion": {
                         "type": "string"
+                    },
+                    "prioridad": {
+                        "type": "number"
                     }
                 },
                 "required": [
                     "nombre",
                     "descripcion",
-                    "codigo_abreviacion"
+                    "codigo_abreviacion",
+                    "prioridad"
                 ]
             }
         }

@@ -4,7 +4,6 @@ import { InjectModel } from "@nestjs/mongoose";
 import { FiltersService } from 'src/filters/filters.service';
 import { FilterDto } from 'src/filters/dto/filter.dto';
 import { PlantillaDto as MainDto, Plantilla as MainModel } from '../models/plantilla.dtoSchema';
-import { Sistema } from 'src/models/sistema.dtoSchema';
 
 @Injectable()
 export class PlantillaService {
@@ -13,8 +12,6 @@ export class PlantillaService {
         private readonly mainModel: Model<MainModel>,
 
         // ? inyectar modelos relacionados para verificar existencia y popular
-        @InjectModel(Sistema.name)
-        private readonly sistemaModel: Model<Sistema>,
     ) {}
 
     /**
@@ -23,23 +20,14 @@ export class PlantillaService {
      * ? Agregar demás comprobaciones si se añaden más relaciones.
      * @param mainDto - modelo dto que se desea verificar.
      */
-    private async checkRelated(mainDto: MainDto) {
-        if (mainDto.sistema_id) {
-            const sistemaId = await this.sistemaModel.exists({ _id: mainDto.sistema_id });
-            if (!sistemaId) {
-                throw new Error(`sistema_id: ${mainDto.sistema_id} doesn't exist`);
-            }
-        }
-    }
+    private async checkRelated(mainDto: MainDto) {}
 
     /**
      * Retorna la lista de colecciones a popular segun relación con la coleción actual.
      * ? Agregar aquí si se relacionan más colecciones.
      */
     private populatefields(): any[] {
-        return [
-            { path: Sistema.name + 'Id' }
-        ]
+        return []
     }
 
     // ? funciones REST generalizadas
