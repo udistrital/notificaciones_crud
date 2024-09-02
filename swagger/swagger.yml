@@ -109,115 +109,6 @@ paths:
         '200':
           description: ''
       tags: *ref_0
-  /plantilla:
-    post:
-      operationId: PlantillaController_post
-      parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PlantillaDto'
-      responses:
-        '201':
-          description: ''
-      tags: &ref_1
-        - plantilla
-    get:
-      operationId: PlantillaController_getAll
-      parameters:
-        - name: query
-          required: false
-          in: query
-          description: query - Filter. e.g. col1:v1,col2:v2 …
-          schema:
-            type: string
-        - name: fields
-          required: false
-          in: query
-          description: fields - Fields returned. e.g. col1,col2 …
-          schema:
-            type: string
-        - name: sortby
-          required: false
-          in: query
-          description: sortby - Sorted-by fields. e.g. col1,col2 …
-          schema:
-            type: string
-        - name: order
-          required: false
-          in: query
-          description: >-
-            order - Order corresponding to each sortby field, if single value,
-            apply to all sortby fields. e.g. desc,asc …
-          schema:
-            type: string
-        - name: limit
-          required: false
-          in: query
-          description: limit - Limit the size of result set. Must be an integer
-          schema:
-            type: string
-        - name: offset
-          required: false
-          in: query
-          description: offset - Start position of result set. Must be an integer
-          schema:
-            type: string
-        - name: populate
-          required: false
-          in: query
-          description: populate - show subqueries. Must be a boolean
-          schema:
-            type: string
-      responses:
-        '200':
-          description: ''
-      tags: *ref_1
-  /plantilla/{id}:
-    get:
-      operationId: PlantillaController_getById
-      parameters:
-        - name: id
-          required: true
-          in: path
-          schema:
-            type: string
-      responses:
-        '200':
-          description: ''
-      tags: *ref_1
-    put:
-      operationId: PlantillaController_put
-      parameters:
-        - name: id
-          required: true
-          in: path
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PlantillaDto'
-      responses:
-        '200':
-          description: ''
-      tags: *ref_1
-    delete:
-      operationId: PlantillaController_delete
-      parameters:
-        - name: id
-          required: true
-          in: path
-          schema:
-            type: string
-      responses:
-        '200':
-          description: ''
-      tags: *ref_1
   /tipo_notificacion:
     post:
       operationId: TipoNotificacionController_post
@@ -231,7 +122,7 @@ paths:
       responses:
         '201':
           description: ''
-      tags: &ref_2
+      tags: &ref_1
         - tipo_notificacion
     get:
       operationId: TipoNotificacionController_getAll
@@ -283,7 +174,7 @@ paths:
       responses:
         '200':
           description: ''
-      tags: *ref_2
+      tags: *ref_1
   /tipo_notificacion/{id}:
     get:
       operationId: TipoNotificacionController_getById
@@ -296,7 +187,7 @@ paths:
       responses:
         '200':
           description: ''
-      tags: *ref_2
+      tags: *ref_1
     put:
       operationId: TipoNotificacionController_put
       parameters:
@@ -314,7 +205,7 @@ paths:
       responses:
         '200':
           description: ''
-      tags: *ref_2
+      tags: *ref_1
     delete:
       operationId: TipoNotificacionController_delete
       parameters:
@@ -326,7 +217,7 @@ paths:
       responses:
         '200':
           description: ''
-      tags: *ref_2
+      tags: *ref_1
 info:
   title: notificaciones_crud
   description: API CRUD sistema de notificaciones
@@ -381,39 +272,6 @@ components:
         - metadatos
         - activo
         - fecha_creacion
-    PlantillaDto:
-      type: object
-      properties:
-        sistema_id:
-          type: string
-        nombre:
-          type: string
-        descripcion:
-          type: string
-        codigo_abreviacion:
-          type: string
-        plantilla_mensaje:
-          type: string
-        metadatos:
-          type: object
-        activo:
-          type: boolean
-        fecha_creacion:
-          format: date-time
-          type: string
-        fecha_modificacion:
-          format: date-time
-          type: string
-      required:
-        - sistema_id
-        - nombre
-        - descripcion
-        - codigo_abreviacion
-        - plantilla_mensaje
-        - metadatos
-        - activo
-        - fecha_creacion
-        - fecha_modificacion
     TipoNotificacionDto:
       type: object
       properties:
