@@ -55,7 +55,7 @@ export class NotificacionService {
             await this.checkRelated(newdoc);
             return newdoc;
         }));
-        return await this.mainModel.insertMany(documents, { ordered: false });
+        return await this.mainModel.insertMany(documents, { ordered: true });
     }
 
     async getAll(filterDto: FilterDto): Promise<MainDto[]> {
