@@ -231,7 +231,7 @@ components:
       type: object
       properties:
         sistema_id:
-          type: string
+          type: number
         tipo_notificacion_id:
           type: string
         destinatario:
