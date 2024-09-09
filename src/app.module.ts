@@ -7,12 +7,6 @@ import { LoggerMiddleware } from './logger/logger';
 import { Notificacion, NotitficacionSchema } from './models/notificacion.dtoSchema';
 import { NotificacionController } from './controllers/notificacion.controller';
 import { NotificacionService } from './services/notificacion.service';
-import { Plantilla, PlantillaSchema } from './models/plantilla.dtoSchema';
-import { PlantillaController } from './controllers/plantilla.controller';
-import { PlantillaService } from './services/plantilla.service';
-import { Sistema, SistemaSchema } from './models/sistema.dtoSchema';
-import { SistemaController } from './controllers/sistema.controller';
-import { SistemaService } from './services/sistema.service';
 import { TipoNotificacion, TipoNotificacionSchema } from './models/tipo_notificacion.dtoSchema';
 import { TipoNotificacionController } from './controllers/tipo_notificacion.controller';
 import { TipoNotificacionService } from './services/tipo_notificacion.service';
@@ -22,13 +16,11 @@ import { TipoNotificacionService } from './services/tipo_notificacion.service';
     MongooseModule.forRoot(`mongodb://${environment.USER}:${environment.PASS}@`+`${environment.HOST}:${environment.PORT}/${environment.DB}?authSource=${environment.AUTH_DB}`),
     MongooseModule.forFeature([
       { name: Notificacion.name, schema: NotitficacionSchema },
-      { name: Plantilla.name, schema: PlantillaSchema },
-      { name: Sistema.name, schema: SistemaSchema },
       { name: TipoNotificacion.name, schema: TipoNotificacionSchema }
     ])
   ],
-  controllers: [AppController, NotificacionController, PlantillaController, SistemaController, TipoNotificacionController],
-  providers: [AppService, NotificacionService, PlantillaService, SistemaService, TipoNotificacionService],
+  controllers: [AppController, NotificacionController, TipoNotificacionController],
+  providers: [AppService, NotificacionService, TipoNotificacionService],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer): void {
