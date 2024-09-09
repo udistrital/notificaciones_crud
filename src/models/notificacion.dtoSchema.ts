@@ -3,7 +3,7 @@ import { ApiProperty} from '@nestjs/swagger';
 export class NotificacionDto {
 
     @ApiProperty()
-    readonly sistema_id: string;
+    readonly sistema_id: number;
 
     @ApiProperty()
     readonly tipo_notificacion_id: string;
@@ -47,7 +47,7 @@ import { Document } from "mongoose";
 export class Notificacion extends Document {
 
     @Prop({required: true})
-    sistema_id: string
+    sistema_id: number
 
     @Prop({required: true})
     tipo_notificacion_id: string

@@ -32,6 +32,9 @@ export class TipoNotificacionService {
 
     // ? funciones REST generalizadas
     async post(mainDto: MainDto): Promise<MainDto> {
+        if (mainDto.prioridad < 1 || mainDto.prioridad > 5) {
+            mainDto.prioridad = null;
+        }
         const newdoc = new this.mainModel(mainDto);
         await this.checkRelated(newdoc);
         return await newdoc.save();
